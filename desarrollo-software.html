@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de Software | InformaticaHoy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reutiliza los estilos generales y del header/footer para mantener consistencia */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header (copiado de tu estilo original) */
+        .header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: 3px solid #e20000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        /* Estilos específicos para la página de desarrollo de software */
+        .content-section {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .content-section h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .content-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .content-section ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .content-image {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        /* Footer (copiado de tu estilo original) */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer .container {
+            text-align: center;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav ul li {
+            margin: 0 15px 10px 15px;
+        }
+
+        .footer-nav ul li a {
+            color: #bbb;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.8em;
+            margin: 0 10px;
+        }
+        .social-icons a:hover {
+            color: #e20000;
+        }
+
+        .copyright {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design (copiado de tu estilo original, asegurando que se aplique también a esta página) */
+        @media (max-width: 992px) {
+            /* No applies directly to this single content page layout, but good to keep if you add sidebars later */
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+            .main-nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav ul li {
+                margin: 0 15px 10px;
+            }
+            .content-section {
+                padding: 20px;
+            }
+            .content-section h1 {
+                font-size: 2em;
+            }
+            .content-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .content-section h1 {
+                font-size: 1.5em;
+            }
+            .content-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">InformaticaHoy</a> 
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="desarrollo-software.html">Desarrollo</a></li> <li><a href="ciberseguridad.html">Ciberseguridad</a></li> <li><a href="datos-ia.html">Datos e IA</a></li>
+                    <li><a href="#">Más Áreas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <div class="content-image" style="background-image: url('https://blogs.uoc.edu/informatica/wp-content/uploads/sites/153/2017/03/cx-picture-100608993-primary-idge_.jpg');"></div>
+            <h1>El Mundo del Desarrollo de Software: Creando el Futuro Digital</h1>
+            <p>El desarrollo de software es una de las ramas más dinámicas y demandadas de la informática. Se centra en el diseño, codificación, prueba y mantenimiento de aplicaciones, sistemas operativos y herramientas que utilizamos a diario. Es el arte y la ciencia de traducir ideas en soluciones funcionales que resuelven problemas y mejoran nuestras vidas.</p>
+            
+            <h2>¿Qué hace un Desarrollador de Software?</h2>
+            <p>Un desarrollador de software es como un arquitecto y constructor de edificios digitales. Su trabajo va más allá de escribir código; implica entender las necesidades del usuario, diseñar la estructura de la aplicación, implementarla con lenguajes de programación, asegurar su correcto funcionamiento y, finalmente, mantenerla y mejorarla con el tiempo.</p>
+
+            <h2>Áreas Clave en el Desarrollo de Software:</h2>
+            <ul>
+                <li><strong>Desarrollo Web (Frontend y Backend):</strong>
+                    <p>El Frontend se encarga de la parte visual e interactiva que el usuario ve y con la que interactúa (HTML, CSS, JavaScript, React, Angular, Vue). El Backend maneja la lógica del servidor, bases de datos y la comunicación con el frontend (Python, Node.js, Java, PHP, Ruby, SQL, MongoDB).</p>
+                </li>
+                <li><strong>Desarrollo Móvil:</strong>
+                    <p>Creación de aplicaciones para smartphones y tablets (iOS con Swift/Objective-C, Android con Java/Kotlin, o multiplataforma con React Native, Flutter, Xamarin).</p>
+                </li>
+                <li><strong>Desarrollo de Software de Escritorio:</strong>
+                    <p>Aplicaciones para computadoras de escritorio (Java, C#, C++, Python con PyQt/Tkinter).</p>
+                </li>
+                <li><strong>Desarrollo de Videojuegos:</strong>
+                    <p>Diseño y programación de videojuegos para diversas plataformas (C++, C#, Unity, Unreal Engine).</p>
+                </li>
+                <li><strong>Desarrollo de Bases de Datos:</strong>
+                    <p>Diseño, implementación y optimización de sistemas de gestión de bases de datos (SQL, NoSQL, Oracle, MySQL, PostgreSQL).</p>
+                </li>
+                <li><strong>Ingeniería DevOps:</strong>
+                    <p>Integración de desarrollo y operaciones para automatizar y agilizar el ciclo de vida del software, mejorando la entrega continua y el despliegue.</p>
+                </li>
+                <li><strong>Garantía de Calidad (QA) / Testing:</strong>
+                    <p>Asegurar que el software cumpla con los requisitos y funcione sin errores, mediante pruebas manuales y automatizadas.</p>
+                </li>
+            </ul>
+
+            <h2>Habilidades Esenciales:</h2>
+            <ul>
+                <li>Lógica de programación y resolución de problemas.</li>
+                <li>Conocimiento de algoritmos y estructuras de datos.</li>
+                <li>Dominio de uno o más lenguajes de programación relevantes.</li>
+                <li>Entendimiento de bases de datos.</li>
+                <li>Conocimiento de control de versiones (Git).</li>
+                <li>Habilidades de comunicación y trabajo en equipo.</li>
+                <li>Capacidad de aprendizaje continuo.</li>
+            </ul>
+
+            <p>El desarrollo de software ofrece una carrera con oportunidades ilimitadas para la innovación y el impacto, permitiendo a los profesionales construir las herramientas que dan forma al mundo digital de hoy y de mañana.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos de Uso</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">FB</a> |
+                <a href="#" aria-label="Twitter">TW</a> |
+                <a href="#" aria-label="Instagram">IG</a> |
+                <a href="#" aria-label="LinkedIn">LI</a>
+            </div>
+            <p class="copyright">&copy; 2025 InformaticaHoy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Adaptable con Vista Previa Móvil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Estilos Generales --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            transition: all 0.5s ease-in-out; /* Transición suave para los cambios de tamaño */
+        }
+
+        /* --- Estilos para la vista de teléfono (simulación de mockup) --- */
+        body.mobile-preview {
+            width: 375px; /* Ancho más común para un teléfono (ej. iPhone X/XR/11 Pro) */
+            height: 667px; /* Altura más común para un teléfono */
+            margin: 20px auto; /* Centra el "teléfono" en la pantalla */
+            border: 10px solid #333; /* Borde oscuro para simular el teléfono */
+            border-radius: 40px; /* Esquinas más redondeadas del teléfono */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.5) inset; /* Sombra y borde interno blanco */
+            overflow: hidden; /* Oculta el contenido que se desborda */
+            position: relative; /* Para el notch y botón de inicio */
+            display: flex; /* Asegura que el contenido interno se alinee correctamente */
+            flex-direction: column;
+        }
+
+        /* Notch (muesca superior) del teléfono */
+        body.mobile-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px; /* Ancho del notch */
+            height: 25px; /* Altura del notch */
+            background-color: #333;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 1000;
+        }
+        /* Botón de inicio (opcional, para simular un botón físico) */
+        body.mobile-preview::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px; /* Tamaño del botón */
+            height: 50px;
+            border: 2px solid #555;
+            border-radius: 50%; /* Circular */
+            background-color: #444;
+            z-index: 1000;
+        }
+
+        /* --- Estilos del Encabezado (Header) --- */
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.5em;
+            margin: 0 20px;
+        }
+        .header-icons .icon {
+            color: #61dafb;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .header-icons .icon:hover {
+            color: #21a1f1;
+            transform: scale(1.1);
+        }
+        /* Resaltar el icono activo */
+        .header-icons .icon.active {
+            color: #21a1f1;
+            transform: scale(1.1);
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .header-buttons .button {
+            background-color: #61dafb;
+            color: #282c34;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .header-buttons .button:hover {
+            background-color: #21a1f1;
+            color: white;
+        }
+
+        /* --- Estilos del Contenido Principal y Formulario --- */
+        .main-content {
+            flex-grow: 1; /* Ocupa todo el espacio vertical disponible entre header y footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* Si estás en mobile-preview, ajusta el padding para el notch/bottom button */
+            padding-top: 25px; /* Deja espacio para el notch */
+            padding-bottom: 60px; /* Deja espacio para el botón de inicio */
+            box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        h3 {
+            color: #444;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Estilos del Pie de Página (Footer) --- */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Ajustes Responsivos (Media Queries) --- */
+        @media (max-width: 768px) { /* Para tablets y pantallas más pequeñas */
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 15px; /* Menos padding en pantallas pequeñas */
+            }
+            header h1 {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 10px;
+                font-size: 1.5em; /* Título más pequeño */
+            }
+            .header-icons {
+                margin: 10px 0;
+                justify-content: center;
+                width: 100%;
+                font-size: 1.3em; /* Iconos un poco más pequeños */
+            }
+            .header-buttons {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-around;
+            }
+            .header-buttons .button {
+                flex-grow: 1;
+                text-align: center;
+                padding: 8px 15px; /* Botones más pequeños */
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) { /* Para teléfonos muy pequeños */
+            .header-buttons {
+                flex-direction: column; /* Apila los botones si la pantalla es muy estrecha */
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Formulario Web</h1>
+        <div class="header-icons">
+            <i class="fas fa-desktop icon" id="desktopIcon"></i> <i class="fas fa-mobile-alt icon" id="mobileIcon"></i> </div>
+        <div class="header-buttons">
+            <a href="https://www.youtube.com/" target="_blank" class="button">Ver YouTube</a>
+            <a href="https://unsplash.com/es/" target="_blank" class="button">Ver Imágenes</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h2>Formulario de Datos Personales</h2>
+            <form action="#" method="POST">
+                <h3>Datos Personales</h3>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula de Identidad:</label>
+                    <input type="text" id="cedula" name="cedula" pattern="[VE]-\d{7,8}" placeholder="Ej: V-12345678" required>
+                    <small>Formato: V-12345678</small>
+                </div>
+
+                <input type="submit" value="Enviar Datos">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© Electiva y diseño web.</p>
+        <p>Hora de clase: 10:30 AM</p>
+        <p>Maracay, Aragua, Venezuela</p>
+        <p>Actualizado: 12 de julio de 2025</p>
+    </footer>
+
+    <script>
+        // Obtener los iconos por su ID
+        const desktopIcon = document.getElementById('desktopIcon');
+        const mobileIcon = document.getElementById('mobileIcon');
+        const body = document.body; // El elemento <body> de la página
+
+        // Función para activar la vista de móvil
+        function activateMobilePreview() {
+            body.classList.add('mobile-preview'); // Añade la clase CSS para el modo móvil
+            mobileIcon.classList.add('active'); // Resalta el icono del móvil
+            desktopIcon.classList.remove('active'); // Desactiva el resaltado del icono de escritorio
+        }
+
+        // Función para desactivar la vista de móvil
+        function deactivateMobilePreview() {
+            body.classList.remove('mobile-preview'); // Elimina la clase CSS
+            desktopIcon.classList.add('active'); // Resalta el icono de escritorio
+            mobileIcon.classList.remove('active'); // Desactiva el resaltado del icono del móvil
+        }
+
+        // Añadir eventos de clic a los iconos
+        desktopIcon.addEventListener('click', deactivateMobilePreview);
+        mobileIcon.addEventListener('click', activateMobilePreview);
+
+        // Activar la vista de escritorio por defecto al cargar la página
+        document.addEventListener('DOMContentLoaded', deactivateMobilePreview);
+    </script>
+</body>
+</html>

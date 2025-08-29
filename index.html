@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago - Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">santiago</div>
+        <nav>
+            <ul>
+                <li><a href="#proyectos">trabajos</a></li>
+                <li><a href="#acerca-de">acerca de</a></li>
+                <li><a href="#contacto">contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="dark-mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeCheckbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-left">
+                <img src="ChatGPT_Image_14_ago_2025__16_06_02-removebg-preview.png" alt="Foto de Santiago" class="profile-image-hero">
+            </div>
+
+            <div class="hero-right">
+                <p class="greeting">👋 Hola, soy Santiago</p>
+                <h1>
+                    <span class="word">Me</span>
+                    <span class="word">gusta</span>
+                    <span class="word">crear</span>
+                    <span class="word">experiencias</span>
+                    <span class="word">interactivas</span>
+                    <span class="word">y</span>
+                    <span class="word">atractivas</span>
+                    <span class="word">con</span>
+                    <span class="word">código.</span>
+                </h1>
+                <p class="subtitle">También hablo &amp; escribo sobre esas cosas.</p>
+            </div>
+        </section>
+
+        <section id="proyectos" class="projects-section">
+            <h2>Proyectos Recientes</h2>
+            <div class="projects-grid">
+                <a href="blog.html" class="project-card project-card-interactive">
+                    <img src="Captura de pantalla 2025-08-13 201508.png" alt="Imagen del proyecto 1">
+                    <div class="project-info">
+                        <h3>Universo Laboral de la Informática</h3>
+                        <p>Descripción breve del proyecto y tecnologías utilizadas.</p>
+                    </div>
+                </a>
+
+                <a href="pagina.html" class="project-card project-card-interactive">
+                    <img src="Captura de pantalla 2025-08-13 205543.png" alt="Imagen del formulario">
+                    <div class="project-info">
+                        <h3>Formulario</h3>
+                        <p>Una breve descripción de lo que hice en este proyecto.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="logos-section">
+            <h2>Marcas y Proyectos</h2>
+            <div class="logos-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="logos/logo delium png.png" alt="Logo del Proyecto 1">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Logo de Delium</h3>
+                            <p>Una breve descripción del proyecto o cliente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="logos/logo de tu caballo.png" alt="Logo del Proyecto 2">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Logo de TuCaballo</h3>
+                            <p>Una breve descripción del proyecto o cliente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="logos/logo de marketing PNG.png" alt="Logo del Proyecto 3">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Logo de MarketingRadar</h3>
+                            <p>Una breve descripción del proyecto o cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="parallax-gallery-section">
+            <h2>Mi Galería de Fotos</h2>
+            <div class="parallax-grid">
+                <div class="photo-item">
+                    <img src="fotos/IMG_2596.jpg" alt="Descripción de la foto 1" data-full-image="fotos/IMG_2596.jpg">
+                    <div class="overlay"><h3>Título de la Foto 1</h3></div>
+                </div>
+                <div class="photo-item">
+                    <img src="fotos/IMG_2468.jpg" alt="Descripción de la foto 2" data-full-image="fotos/IMG_2468.jpg">
+                    <div class="overlay"><h3>Título de la Foto 2</h3></div>
+                </div>
+                <div class="photo-item">
+                    <img src="fotos/IMG_1346.jpg" alt="Descripción de la foto 3" data-full-image="fotos/IMG_1346.jpg">
+                    <div class="overlay"><h3>Título de la Foto 3</h3></div>
+                </div>
+                <div class="photo-item">
+                    <img src="fotos/IMG_1168.jpg" alt="Descripción de la foto 4" data-full-image="fotos/IMG_1168.jpg">
+                    <div class="overlay"><h3>Título de la Foto 4</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="branding-projects" class="branding-projects-section">
+            <h2>Mis Proyectos de Branding</h2>
+            <p>Haz clic en un proyecto para ver la guía de marca completa.</p>
+            <div class="branding-projects-grid">
+                <a href="#" class="branding-card" data-project="project1">
+                    <img src="C:\Users\sjapo\OneDrive\Escritorio\Portafolio\Captura de pantalla 2025-08-28 205330.png" alt="Portada de Proyecto 1" class="branding-cover-image">
+                </a>
+                <a href="#" class="branding-card" data-project="project2">
+                    <img src="C:\Users\sjapo\OneDrive\Escritorio\Portafolio\Captura de pantalla 2025-08-28 205516.png" alt="Portada de Proyecto 2" class="branding-cover-image">
+                </a>
+                <a href="#" class="branding-card" data-project="project3">
+                    <img src="C:\Users\sjapo\OneDrive\Escritorio\Portafolio\vitual.jpeg" alt="Portada de Proyecto 3" class="branding-cover-image">
+                </a>
+            </div>
+        </section>
+
+        <div id="brandingModal" class="branding-modal">
+            <span class="close-button">&times;</span>
+            <div class="branding-carousel">
+                <img id="brandingImage" src="" alt="Presentación de Branding">
+                <button id="prevBtn" class="nav-button prev">&#10094;</button>
+                <button id="nextBtn" class="nav-button next">&#10095;</button>
+            </div>
+        </div>
+
+        <section id="acerca-de" class="about-section">
+            <h2>Acerca de Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Soy un **desarrollador web** con pasión por el diseño y la creación de interfaces intuitivas y atractivas. Me especializo en tecnologías front-end, construyendo experiencias que no solo se ven bien, sino que también funcionan de manera impecable.
+                    </p>
+                    <p>
+                        A lo largo de mi carrera, he trabajado en proyectos que abarcan desde el desarrollo de sitios web dinámicos hasta la creación de componentes reutilizables. Mi objetivo es combinar la estética visual con un código robusto y optimizado.
+                    </p>
+                    <h3 class="about-skills-title">Habilidades y Herramientas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <img src="ICONOS/Adobe_Photoshop_CC_icon.svg" alt="Icono de Photoshop" class="skill-icon-card">
+                            <h4>Photoshop</h4>
+                        </div>
+                        <div class="skill-card">
+                            <img src="ICONOS/Adobe_Illustrator_CC_icon.svg" alt="Icono de Illustrator" class="skill-icon-card">
+                            <h4>Illustrator</h4>
+                        </div>
+                        <div class="skill-card">
+                            <img src="ICONOS/Adobe_After_Effects_CC_icon.svg" alt="Icono de After Effects" class="skill-icon-card">
+                            <h4>After Effects</h4>
+                        </div>
+                        <div class="skill-card">
+                            <img src="ICONOS/Python-logo-notext.svg" alt="Icono de Python" class="skill-icon-card">
+                            <h4>Python</h4>
+                        </div>
+                        <div class="skill-card">
+                            <img src="ICONOS/HTML5_logo_and_wordmark.svg" alt="Icono de HTML" class="skill-icon-card">
+                            <h4>HTML5</h4>
+                        </div>
+                    </div>
+
+                    <a id="openCvModalBtn" class="cv-button">Ver mi CV</a>
+                </div>
+                <div class="profile-image-container">
+                    <img src="ChatGPT_Image_15_ago_2025__06_37_07_p.m.-removebg-preview.png" alt="Ilustración sobre diseño" class="profile-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <h2>Contacto</h2>
+            <p>¡Me encantaría saber de ti! Puedes contactarme a través de:</p>
+            <div class="contact-links">
+                <a href="mailto:tu-email@ejemplo.com">Email</a>
+                <a href="https://github.com/tu-usuario">GitHub</a>
+                <a href="https://linkedin.com/in/tu-usuario">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Santiago. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="cvModal" class="cv-modal">
+        <div class="cv-modal-content">
+            <span class="cv-close-button">&times;</span>
+            <iframe id="cvFrame" src="santiago-cv.pdf" frameborder="0"></iframe>
+            <a href="santiago-cv.pdf" download class="cv-download-button">Descargar PDF</a>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="fullImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

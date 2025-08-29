@@ -1,0 +1,900 @@
+/* Variables para los colores */
+:root {
+    /* Modo Oscuro (por defecto) */
+    --bg-color: #0b1120;
+    --text-color: #f0f0f0;
+    --highlight-color: #63d471;
+    --secondary-text-color: #b0b0b0;
+    --link-color: #f0f0f0;
+    --project-card-bg: #1a1e2f;
+    --svg-rect-color: #2d3748;
+    --svg-circle-blue: #63b3ed;
+    --svg-circle-green: #48bb78;
+    --svg-circle-pink: #f687b3;
+}
+
+/* Modo Claro (cuando el body tiene la clase 'light-mode') */
+body.light-mode {
+    --bg-color: #f0f0f0;
+    --text-color: #0b1120;
+    --highlight-color: #ff69b4;
+    --secondary-text-color: #5a5a5a;
+    --link-color: #0b1120;
+    --project-card-bg: #e2e8f0;
+    --svg-rect-color: #e2e8f0;
+    --svg-circle-blue: #4299e1;
+    --svg-circle-green: #2f855a;
+    --svg-circle-pink: #d53f8c;
+}
+
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Transiciones para el texto y bordes */
+a, h1, h2, h3, p, .logo, footer {
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--highlight-color);
+}
+
+.profile-image {
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.contact-links a {
+    transition: border-color 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+
+/* ------------------- Navegación y Switch ------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    z-index: 2;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    z-index: 10;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "🌙";
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    color: #555;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "☀️";
+    color: #ffc107;
+}
+
+/* Animación de rotación para el icono del switch */
+.switch input:checked + .slider::before {
+    animation: rotateIcon 0.5s ease-in-out;
+}
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(26px); }
+}
+
+/* ------------------- Sección Principal y Foto ------------------- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    flex-grow: 1;
+    min-height: calc(100vh - 8rem);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-left {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 3rem;
+}
+
+.greeting {
+    font-size: 1.1rem;
+    color: var(--highlight-color);
+    margin-bottom: -0.5rem;
+}
+
+.hero-right h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Estilos de la animación de texto */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo por defecto para las palabras: invisibles */
+h1 .word {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+}
+
+/* Estilos de la clase para activar la animación */
+.word.animated {
+    animation: fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+}
+
+/* Estilos para tu foto en la sección principal */
+.profile-image-hero {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--highlight-color);
+    box-shadow: 0 0 20px rgba(99, 212, 113, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image-hero:hover {
+    transform: scale(1.05); /* Efecto de zoom del 5% */
+    box-shadow: 0 0 30px 10px rgba(99, 212, 113, 0.5); /* Sombra más grande y brillante */
+}
+
+/* ------------------- Círculo de Revelación ------------------- */
+body::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.8s ease-in-out;
+    z-index: 99;
+}
+
+body.revealed::after {
+    transform: translate(-50%, -50%) scale(20);
+}
+
+/* ------------------- Secciones de Contenido ------------------- */
+section {
+    padding: 4rem;
+    margin-bottom: 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.post-title {
+    margin-top: 4rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--project-card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+}
+
+/* Efecto de hover para la tarjeta de proyecto */
+.project-card-interactive {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-interactive:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--secondary-text-color);
+}
+
+.about-section {
+    padding: 6rem 4rem;
+}
+
+/* Modificado para cambiar el espaciado y la alineación */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 8rem; /* Aumentado para separar los elementos */
+    max-width: 1200px; /* Aumentado para darles más espacio */
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+}
+
+/* Estilos de la ilustración, ahora más grande */
+.profile-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--highlight-color);
+    box-shadow: 0 0 20px rgba(99, 212, 113, 0.3);
+}
+
+/* Estilos para la sección Acerca de Mí (Versión 2) */
+.about-skills-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--project-card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.skill-icon-card {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-card h4 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-links a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--highlight-color);
+    border-radius: 5px;
+}
+
+.contact-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--secondary-text-color);
+    margin-top: auto;
+    transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+/* ------------------- Sección de Logos ------------------- */
+.logos-section {
+    padding: 4rem;
+    text-align: center;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Contenedor de la tarjeta (flip-card) */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+/* Contenedor interior de la tarjeta */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Efecto de giro al pasar el mouse */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Posición de los lados de la tarjeta */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+/* Estilos para el frente de la tarjeta (logo) */
+.flip-card-front {
+    background-color: var(--project-card-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front img {
+    /* Código ajustado para hacer el logo más grande */
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Estilos para la parte trasera de la tarjeta (info) */
+.flip-card-back {
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.flip-card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ------------------- Sección de Galería de Fotos ------------------- */
+.parallax-gallery-section {
+    padding: 4rem;
+}
+
+.parallax-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 4rem;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.photo-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.photo-item:hover .overlay {
+    opacity: 1;
+}
+
+.photo-item .overlay h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Styles for the image modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 102;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* ------------------- Sección de Proyectos de Branding ------------------- */
+.branding-projects-section {
+    text-align: center;
+    padding: 4rem;
+}
+
+.branding-projects-section p {
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.branding-projects-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.branding-card {
+    display: block;
+    background-color: var(--project-card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.branding-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Código para las imágenes de portada */
+.branding-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.branding-card:hover img {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* ------------------- Modal del Carrusel ------------------- */
+.branding-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.branding-carousel {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.branding-carousel img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.nav-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.nav-button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* --- Estilos del Modal para el CV --- */
+.cv-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cv-button:hover {
+    background-color: #55c65f;
+}
+
+.cv-modal {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.cv-modal-content {
+    position: relative;
+    background-color: var(--project-card-bg);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-close-button {
+    color: var(--text-color);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cv-close-button:hover {
+    color: var(--highlight-color);
+}
+
+.cv-modal-content iframe {
+    width: 100%;
+    height: 80vh;
+    border-radius: 8px;
+}
+
+.cv-download-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--highlight-color);
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.cv-download-button:hover {
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.5rem;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .hero-left, .hero-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+}

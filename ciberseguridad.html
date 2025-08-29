@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciberseguridad | InformaticaHoy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reutiliza los estilos generales y del header/footer para mantener consistencia */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header (copiado de tu estilo original) */
+        .header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: 3px solid #e20000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        /* Estilos específicos para la página de contenido */
+        .content-section {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .content-section h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .content-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .content-section ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .content-image {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        /* Footer (copiado de tu estilo original) */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer .container {
+            text-align: center;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav ul li {
+            margin: 0 15px 10px 15px;
+        }
+
+        .footer-nav ul li a {
+            color: #bbb;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.8em;
+            margin: 0 10px;
+        }
+        .social-icons a:hover {
+            color: #e20000;
+        }
+
+        .copyright {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design (copiado de tu estilo original, asegurando que se aplique también a esta página) */
+        @media (max-width: 992px) {
+            /* No applies directly to this single content page layout, but good to keep if you add sidebars later */
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+            .main-nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav ul li {
+                margin: 0 15px 10px;
+            }
+            .content-section {
+                padding: 20px;
+            }
+            .content-section h1 {
+                font-size: 2em;
+            }
+            .content-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .content-section h1 {
+                font-size: 1.5em;
+            }
+            .content-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">InformaticaHoy</a> 
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="desarrollo-software.html">Desarrollo</a></li>
+                    <li><a href="ciberseguridad.html">Ciberseguridad</a></li> <li><a href="datos-ia.html">Datos e IA</a></li>
+                    <li><a href="#">Más Áreas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <div class="content-image" style="background-image: url('https://kushki.com/wp-content/uploads/2023/11/que-es-ciberseguridad.jpg');"></div>
+            <h1>Ciberseguridad: Protegiendo el Mundo Digital</h1>
+            <p>En un mundo cada vez más conectado, la **ciberseguridad** se ha convertido en una disciplina fundamental para proteger la información y los sistemas contra amenazas digitales. Los profesionales de la ciberseguridad son los **guardianes de nuestros datos y la infraestructura tecnológica**, asegurando la confidencialidad, integridad y disponibilidad de la información.</p>
+            
+            <h2>El Rol del Profesional de Ciberseguridad</h2>
+            <p>Los expertos en ciberseguridad son responsables de un amplio rango de tareas para mantener la seguridad digital. Esto incluye:</p>
+            <ul>
+                <li>**Identificar vulnerabilidades** en sistemas, redes y aplicaciones.</li>
+                <li>**Implementar y configurar medidas de protección** como firewalls, sistemas de detección de intrusiones (IDS) y sistemas de prevención de intrusiones (IPS).</li>
+                <li>**Monitorear actividades sospechosas** y anomalías en el tráfico de red y registros del sistema.</li>
+                <li>**Responder a incidentes de seguridad**, investigando brechas, conteniendo ataques y recuperando sistemas afectados.</li>
+                <li>**Desarrollar políticas y procedimientos** de seguridad para educar a los usuarios y establecer mejores prácticas.</li>
+                <li>Realizar **pruebas de penetración (pentesting)** y evaluaciones de seguridad para simular ataques y descubrir debilidades antes que los ciberdelincuentes.</li>
+            </ul>
+
+            <h2>Áreas Clave de Especialización:</h2>
+            <p>La ciberseguridad es un campo amplio con diversas especializaciones. Algunas de las más demandadas incluyen:</p>
+            <ul>
+                <li>**Análisis de Malware:** Investigación y desarticulación de software malicioso.</li>
+                <li>**Seguridad de Redes:** Protección de la infraestructura de comunicación de una organización.</li>
+                <li>**Seguridad de Aplicaciones:** Asegurar que el software desarrollado no tenga vulnerabilidades.</li>
+                <li>**Hacking Ético / Pentesting:** Expertos que simulan ataques para fortalecer las defensas de una empresa.</li>
+                <li>**Respuesta a Incidentes:** Equipos dedicados a gestionar y mitigar ataques en tiempo real.</li>
+                <li>**Criptografía:** Desarrollo y aplicación de algoritmos para proteger la información mediante cifrado.</li>
+                <li>**Análisis Forense Digital:** Recopilación y examen de evidencia digital en investigaciones de ciberdelitos.</li>
+                <li>**Ingeniería de Seguridad:** Diseño e implementación de arquitecturas de seguridad robustas.</li>
+            </ul>
+
+            <h2>Habilidades Esenciales:</h2>
+            <p>Para triunfar en ciberseguridad, se requieren habilidades técnicas y blandas:</p>
+            <ul>
+                <li>**Conocimiento sólido de redes:** TCP/IP, DNS, modelos OSI/TCP-IP, firewalls, VPNs.</li>
+                <li>**Dominio de sistemas operativos:** Especialmente Linux y Windows Server.</li>
+                <li>**Programación:** Python, Bash, PowerShell son muy valorados para automatización y scripting.</li>
+                <li>**Comprensión de bases de datos:** SQL, NoSQL y cómo asegurar sus datos.</li>
+                <li>**Pensamiento analítico y resolución de problemas:** Crucial para identificar y mitigar amenazas.</li>
+                <li>**Atención al detalle:** Una pequeña vulnerabilidad puede ser catastrófica.</li>
+                <li>**Aprendizaje continuo:** El panorama de amenazas cambia constantemente.</li>
+                <li>**Ética profesional y discreción:** Manejar información sensible requiere la máxima integridad.</li>
+            </ul>
+
+            <p>La ciberseguridad es una **carrera desafiante pero extremadamente gratificante**, con una demanda creciente de profesionales en todos los sectores. Si te apasiona proteger la información y luchar contra el crimen digital, este campo ofrece oportunidades ilimitadas.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos de Uso</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">FB</a> |
+                <a href="#" aria-label="Twitter">TW</a> |
+                <a href="#" aria-label="Instagram">IG</a> |
+                <a href="#" aria-label="LinkedIn">LI</a>
+            </div>
+            <p class="copyright">&copy; 2025 InformaticaHoy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

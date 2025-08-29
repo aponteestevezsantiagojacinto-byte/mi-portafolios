@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Mi Blog</title>
+    <style>
+        /* CSS INCRUSTADO PARA LA PÁGINA DE INICIO DE SESIÓN */
+
+        /* --- Variables CSS (Replicamos las de blog.html para consistencia) --- */
+        :root {
+            --primary-color: #e62b1e;   /* Rojo vibrante, similar al logo de Billboard */
+            --secondary-color: #212121; /* Negro casi total para fondos y texto principal */
+            --accent-color: #f7a700;    /* Naranja/Amarillo para resaltar */
+            --text-color: #333333;      /* Gris oscuro para el cuerpo del texto */
+            --light-text-color: #f0f0f0; /* Gris muy claro para texto sobre fondos oscuros */
+            --background-color: #ffffff; /* Blanco puro para fondos de contenido */
+            --dark-background-color: #1a1a1a; /* Negro para header/footer/secciones oscuras */
+            --border-color: #eeeeee;    /* Gris claro para bordes sutiles */
+            --hover-color: #bb221a;     /* Rojo más oscuro para efectos hover */
+
+            --font-heading: 'Roboto Condensed', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* --- Importar Fuentes de Google --- */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        /* --- Reset Básico y Estilos Globales --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            background-color: var(--dark-background-color); /* Fondo oscuro como el header */
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center; /* Centra el contenido verticalmente */
+            align-items: center;     /* Centra el contenido horizontalmente */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Estilos del Contenedor de Formulario de Inicio de Sesión --- */
+        .login-container {
+            background-color: var(--background-color); /* Fondo blanco para el formulario */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+            width: 100%;
+            max-width: 450px; /* Ancho máximo para el formulario */
+            text-align: center;
+            border-top: 5px solid var(--primary-color); /* Barra roja distintiva en la parte superior */
+        }
+
+        .login-container h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .login-container .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-family: var(--font-body);
+            color: var(--text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 43, 30, 0.2);
+            outline: none;
+        }
+
+        .login-container button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%; /* El botón ocupa todo el ancho */
+            margin-top: 20px;
+        }
+
+        .login-container button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .login-container .forgot-password {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .login-container .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .login-container .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 25px;
+                margin: 20px; /* Margen para que no toque los bordes en móviles */
+            }
+            .login-container h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            .login-container input,
+            .login-container button {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm"> <div class="form-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" name="username" placeholder="Tu nombre de usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
+            </div>
+            <button type="submit">Acceder</button>
+            <p class="forgot-password">¿Olvidaste tu contraseña? <a href="#">Haz clic aquí</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Define el usuario administrador temporal
+        // ¡IMPORTANTE! NUNCA HAGAS ESTO EN UNA APLICACIÓN REAL POR SEGURIDAD.
+        // Esto es solo para fines de demostración en HTML/CSS plano.
+        const tempAdminUser = {
+            username: "admin",
+            password: "password123"
+        };
+
+        // Obtén el formulario por su ID
+        const loginForm = document.getElementById('loginForm');
+
+        // Añade un "escuchador de eventos" para cuando se envíe el formulario
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional (recargar la página)
+
+            // Obtén los valores ingresados por el usuario
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            // Compara los valores con las credenciales temporales del administrador
+            if (usernameInput === tempAdminUser.username && passwordInput === tempAdminUser.password) {
+                // Si las credenciales son correctas
+                alert("Inicio de sesión exitoso. ¡Bienvenido, administrador!");
+                // Redirige a la página del administrador (que crearemos después)
+                window.location.href = 'admin.html'; // Redirige a admin.html
+            } else {
+                // Si las credenciales son incorrectas
+                alert("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
+            }
+        });
+    </script>
+
+</body>
+</html>

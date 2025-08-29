@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InformaticaHoy | Tu Portal de Tecnología y Carreras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Tus estilos CSS existentes van aquí */
+        /* ... (mantén todo el CSS que ya tienes aquí) ... */
+
+        /* --- Estilos Generales --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: 3px solid #e20000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: #fff;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://saluddata.com/wp-content/uploads/2023/11/que-es-la-informatica.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #e20000;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #b30000;
+        }
+
+        /* --- Main Content Layout --- */
+        .main-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .articles-section {
+            flex: 3;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .sidebar h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5em;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: #007bff;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #e20000;
+            text-decoration: underline;
+        }
+
+        /* --- Article Grid --- */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5em;
+            color: #1a1a1a;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .article-content p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer .container {
+            text-align: center;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav ul li {
+            margin: 0 15px 10px 15px;
+        }
+
+        .footer-nav ul li a {
+            color: #bbb;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #e20000;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.8em;
+            margin: 0 10px;
+        }
+        .social-icons a:hover {
+            color: #e20000;
+        }
+
+        .copyright {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .sidebar {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+            .main-nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav ul li {
+                margin: 0 15px 10px;
+            }
+            .hero-section {
+                padding: 30px 0;
+            }
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+            .hero-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">InformaticaHoy</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="desarrollo-software.html">Desarrollo</a></li>
+                    <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+                    <li><a href="datos-ia.html">Datos e IA</a></li>
+                    <li><a href="#">Más Áreas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-image"></div>
+                <h1>Desvelando el Universo Laboral de la Informática: ¡Encuentra tu Ruta!</h1>
+                <p>La informática es un campo vasto y en constante expansión. Descubre las principales áreas donde los profesionales de la tecnología están construyendo el futuro.</p>
+                <a href="#featured-articles" class="read-more-btn">Explorar Áreas</a>
+            </div>
+        </section>
+
+        <section class="main-content container">
+            <div class="articles-section">
+                <h2>Últimos Artículos sobre Carreras Tech</h2>
+                <div class="article-grid">
+                    <a href="desarrollo-software.html" class="article-card">
+                        <div class="article-image" style="background-image: url('https://blogs.uoc.edu/informatica/wp-content/uploads/sites/153/2017/03/cx-picture-100608993-primary-idge_.jpg');"></div>
+                        <div class="article-content">
+                            <h3>Desarrollo de Software: Los Arquitectos del Código</h3>
+                            <p>Desde aplicaciones móviles hasta sistemas operativos, descubre el mundo de los desarrolladores y sus especializaciones.</p>
+                            <div class="article-meta">Julio 12, 2025 | Carrera Tech</div>
+                        </div>
+                    </a>
+
+                    <a href="ciberseguridad.html" class="article-card">
+                        <div class="article-image" style="background-image: url('https://ecuador.unir.net/wp-content/uploads/sites/8/2022/06/diverse-office-enthusiastic-white-it-programmer-working-on-desktop-picture-id1354205065.jpg');"></div>
+                        <div class="article-content">
+                            <h3>Ciberseguridad: Los Guardianes Digitales</h3>
+                            <p>Protege datos y sistemas de amenazas. Conoce el rol crucial de los expertos en seguridad informática.</p>
+                            <div class="article-meta">Julio 12, 2025 | Seguridad</div>
+                        </div>
+                    </a>
+
+                    <a href="ciencia-datos-ia.html" class="article-card">
+                        <div class="article-image" style="background-image: url('https://humanidades.com/wp-content/uploads/2018/08/informatica-e1575679570321.jpg');"></div>
+                        <div class="article-content">
+                            <h3>Ciencia de Datos e IA: Desvelando el Futuro</h3>
+                            <p>Analiza grandes volúmenes de datos y crea inteligencia artificial. El futuro está en los datos.</p>
+                            <div class="article-meta">Julio 12, 2025 | Innovación</div>
+                        </div>
+                    </a>
+
+                    <a href="sistemas-redes.html" class="article-card">
+                        <div class="article-image" style="background-image: url('https://www.unila.edu.mx/wp-content/uploads/2021/07/para-que-sirve-la-informatica-min.jpg');"></div>
+                        <div class="article-content">
+                            <h3>Administración de Sistemas y Redes: El Corazón de la Infraestructura</h3>
+                            <p>Mantén la tecnología en funcionamiento. Los admins son la columna vertebral de cualquier empresa.</p>
+                            <div class="article-meta">Julio 12, 2025 | Infraestructura</div>
+                        </div>
+                    </a>
+
+                    <a href="gestion-proyectos-ti.html" class="article-card">
+                        <div class="article-image" style="background-image: url('https://www.informador.mx/__export/1733839208475/sites/elinformador/img/2024/12/10/10_de_diciembre_d-a_mundial_de_la_inform-tica-_que_resalta_el_impacto_de_esta_disciplina_en_la_sociedad_moderna_-2-.png_241138404.png');"></div>
+                        <div class="article-content">
+                            <h3>Gestión de Proyectos de TI: Orquestando el Éxito</h3>
+                            <p>Lidera equipos y proyectos tecnológicos para asegurar que se cumplan los objetivos y plazos.</p>
+                            <div class="article-meta">Julio 12, 2025 | Liderazgo</div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <h3>Tendencias Populares</h3>
+                <ul>
+                    <li><a href="#">El auge del Machine Learning en 2025</a></li>
+                    <li><a href="ciberseguridad.html">¿Por qué la Ciberseguridad es clave para tu negocio?</a></li>
+                    <li><a href="#">Frontend vs. Backend: ¿Qué es lo tuyo?</a></li>
+                    <li><a href="#">Certificaciones cloud más demandadas</a></li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Acerca de Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos de Uso</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">FB</a> |
+                <a href="#" aria-label="Twitter">TW</a> |
+                <a href="#" aria-label="Instagram">IG</a> |
+                <a href="#" aria-label="LinkedIn">LI</a>
+            </div>
+            <p class="copyright">&copy; 2025 InformaticaHoy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
